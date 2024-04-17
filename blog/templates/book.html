@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<div class="card">
+  <div class="card-header"><strong>
+         title:{{ book_record.title }}
+    	</strong>
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">
+        <strong>author: </strong>{{ book_record.author }}
+    </p>
+
+    <p class="card-text">
+        <strong>body: </strong>{{ book_record.body }}
+    </p>
+  </div>
+</div>
+
+<br/><br/>
+{% endif %}
+<a href="{% url 'about' %}" class="btn btn-secondary"><i class="fa fa-home" aria-hidden="true"></i>Back</a>
+
+<a href="{% url 'update' book_record.id %}" class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i>Update Record</a>
+
+<a href="{% url 'delete' book_record.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
+		
+
+{% endblock %}
